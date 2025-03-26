@@ -8,7 +8,11 @@ import os
 
 # 从环境变量中读取 Token 和服务器 ID
 TOKEN = os.getenv("DISCORD_BOT_TOKEN")
-GUILD_ID = int(os.getenv("DISCORD_GUILD_ID"))
+# 获取环境变量
+guild_id_str = os.getenv("DISCORD_GUILD_ID")
+if not guild_id_str:
+    raise RuntimeError("环境变量 DISCORD_GUILD_ID 未设置，或值为空！")
+GUILD_ID = int(guild_id_str)
 ROLE_NAME = "别当哈基耶了"  # 要操作的角色名
 
 # 创建 bot 实例，启用成员列表权限
