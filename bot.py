@@ -7,8 +7,8 @@ import pytz
 import os
 
 # 从环境变量中读取 Token 和服务器 ID
-TOKEN = "MTM1NDMwMzMzOTE3NjkyMzI1Ng.GY6yN4.0f8oDYKfbrY5RDID_NwxZs0TGzfC1LzR8gx_cM"
-GUILD_ID = 793587230866276362
+TOKEN = os.getenv("DISCORD_BOT_TOKEN")
+GUILD_ID = int(os.getenv("DISCORD_GUILD_ID"))
 ROLE_NAME = "别当哈基耶了"  # 要操作的角色名
 
 # 创建 bot 实例，启用成员列表权限
