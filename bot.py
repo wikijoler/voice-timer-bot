@@ -48,6 +48,11 @@ async def check_and_toggle_role():
     now = datetime.datetime.now(pytz.timezone("Asia/Shanghai"))
     current_time = now.strftime("%H:%M")
 
+@tasks.loop(minutes=1)
+async def check_and_toggle_role():
+    now = datetime.datetime.now(pytz.timezone("Asia/Shanghai"))
+    print(f"[定时任务] 当前时间：{now.strftime('%Y-%m-%d %H:%M:%S')}")
+    
     if not is_weekday():
         return  # 周六日不处理
 
